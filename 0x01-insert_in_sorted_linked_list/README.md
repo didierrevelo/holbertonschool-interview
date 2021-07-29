@@ -16,7 +16,7 @@
 All your header files should be include guarded
 
 ## Tasks
-### 0. Insert in sorted linked list
+### [0. Insert in sorted linked list](0-insert_number.c)
 #### mandatory
 **Technical interview preparation:**
 
