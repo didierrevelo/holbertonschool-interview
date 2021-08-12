@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-"""[summary]
-"""
+"""0. Minimum Operations"""
+
 
 def minOperations(n):
-    """[summary]
-
-    Args:
-        n ([type]): [description]
-"""
+    """minOperations
+        n -- If n is impossible to achieve, return 0
+        Return: Returns an integer
+    """
     if n <= 1:
         return 0
     num = 0
