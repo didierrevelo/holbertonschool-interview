@@ -1,0 +1,1 @@
+<h1 align="center">0x0A. 2048 (single line)</h1>
