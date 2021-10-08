@@ -4,7 +4,7 @@
 
 
 /**
- * One - Checks if indices are (1, 1), if so, then square is blank
+ * first - Checks if indices are (1, 1), if so, then square is blank
  *
  * @row: Row Index
  * @colum: Column Index
