@@ -40,7 +40,7 @@ avl_t *sort_insert(int *array, int min, int max)
 		return (NULL);
 
 	half = (max + min) / 2;
- 
+
 	tree = binary_tree_node(NULL, array[half]);
 	if (!tree)
 		return (NULL);
