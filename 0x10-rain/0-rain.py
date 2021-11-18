@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""0. Rain"""
 
 
 def rain(walls):
