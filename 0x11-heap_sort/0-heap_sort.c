@@ -25,8 +25,9 @@ void swap(int *array, int i, int j, const int r_size)
 /**
  * sift_down - Sifts down an element in an array
  * @array: The array to be sorted
+ * @i: The element to be sifted down
  * @size: The size of the array
- * @index: The root of the heap
+ * @r_size: The root of the heap
  * Return: void
  */
 void sift_down(int *array, size_t size, int i, const int r_size)
