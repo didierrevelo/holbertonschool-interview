@@ -5,20 +5,23 @@
  * @array: The array to be sorted
  * @i: The first element
  * @j: The second element
+ * @r_size: The size of the array
  * Return: void
  */
-void swap(int *array, size_t i, size_t j)
+void swap(int *array, int i, int j, const int r_size)
 {
-	int temp;
+	int tmp;
+	(void)r_size;
 
 	if (i != j)
 	{
-		temp = array[i];
+		tmp = array[i];
 		array[i] = array[j];
-		array[j] = temp;
-		print_array(array, 10);
+		array[j] = tmp;
+		print_array(array, (size_t)r_size);
 	}
 }
+
 /**
  * sift_down - Sifts down an element in an array
  * @array: The array to be sorted
@@ -26,24 +29,22 @@ void swap(int *array, size_t i, size_t j)
  * @index: The root of the heap
  * Return: void
  */
-void sift_down(int *array, size_t size, size_t index)
+void sift_down(int *array, size_t size, int i, const int r_size)
 {
-	size_t left, right, largest;
+	int largest = i;
+	int lft = (2 * i) + 1;
+	int rgt = (2 * i) + 2;
 
-	left = 2 * index + 1;
-	right = 2 * index + 2;
-	largest = index;
+	if (lft < (int)size && array[lft] > array[largest])
+		largest = lft;
 
-	if (left < size && array[left] > array[largest])
-		largest = left;
+	if (rgt < (int)size && array[rgt] > array[largest])
+		largest = rgt;
 
-	if (right < size && array[right] > array[largest])
-		largest = right;
-
-	if (largest != index)
+	if (largest != i)
 	{
-		swap(array, index, largest);
-		sift_down(array, size, largest);
+		swap(array, i, largest, r_size);
+		sift_down(array, size, largest, r_size);
 	}
 }
 
@@ -56,17 +57,18 @@ void sift_down(int *array, size_t size, size_t index)
  */
 void heap_sort(int *array, size_t size)
 {
-	size_t i;
+	const int r_size = (const int)size;
+	int i;
 
-	if (!array || size < 2)
+	if (size < 2 || !array)
 		return;
 
-	for (i = (size / 2) - 1; i > 0; i--)
-		sift_down(array, size, i);
+	for (i = size / 2 - 1; i >= 0; i--)
+		sift_down(array, size, i, r_size);
 
-	for (i = size - 1; i > 0; i--)
+	for (i = size - 1; i >= 0; i--)
 	{
-		swap(array, 0, i);
-		sift_down(array, i, 0);
+		swap(array, 0, i, r_size);
+		sift_down(array, i, 0, r_size);
 	}
 }
