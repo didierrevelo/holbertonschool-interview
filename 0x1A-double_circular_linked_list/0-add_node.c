@@ -69,6 +69,9 @@ List *add_node_begin(List **list, char *str)
 	strNode = strdup(str);
 	if (!strNode)
 	{
+
+
+		
 		free(new_node);
 		return (NULL);
 	}
